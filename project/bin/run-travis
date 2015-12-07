@@ -4,7 +4,7 @@
 # https://github.com/paulp/psp-std/blob/master/project/bin/run-travis
 
 runTests () {
-  sbt $TRAVIS_SCALA_VERSION test || exit 1
+  sbt ++$TRAVIS_SCALA_VERSION test || exit 1
   echo "[info] $(date) - finished sbt test"
 
   # Tricks to avoid unnecessary cache updates
