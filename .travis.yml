@@ -16,6 +16,7 @@ cache:
   - $HOME/.sbt/boot/
 
 script:
-  - "sbt -h" # test. remove later
+  - "cp .sbtignore $HOME/.sbtignore && cat $HOME/.sbtignore"
+  - "sbt test"
   - "project/bin/run-travis"
 

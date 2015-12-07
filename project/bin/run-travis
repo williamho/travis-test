@@ -4,7 +4,7 @@
 # https://github.com/paulp/psp-std/blob/master/project/bin/run-travis
 
 runTests () {
-  sbt ++$TRAVIS_SCALA_VERSION test || exit 1
+  sbt $TRAVIS_SCALA_VERSION test || exit 1
   echo "[info] $(date) - finished sbt test"
 
   # Tricks to avoid unnecessary cache updates
@@ -14,7 +14,7 @@ runTests () {
 }
 
 stripTerminalEscapeCodes () {
-  sed -r 's/\x1B\[[0-9;]*[JKmsu]//g'
+  sed -E 's/\x1B\[[0-9;]*[JKmsu]//g'
 }
 
 mkRegex () { ( IFS="|" && echo "$*" ); }
@@ -31,7 +31,7 @@ filterOutput() {
     '^\[info\] \[info\]' \
     '^\[info\] (Reading|Generating|Waiting|Written)\b' \
     '^downloading http.*\.jar' \
-    '^\[SUCCESSFUL[ ]*\].*\.jar'
+    '^\[info\] \[SUCCESSFUL[ ]*\].*\.jar'
   )
   while read line; do
     if ! [[ $(echo $line | stripTerminalEscapeCodes) =~ $excludeRegex ]] ; then
