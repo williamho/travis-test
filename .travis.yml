@@ -1,0 +1,21 @@
+language: scala
+
+sudo: required
+
+services:
+   - docker
+scala:
+   - 2.11.7
+jdk:
+   - oraclejdk8
+
+cache:
+  directories:
+  - $HOME/.ivy2
+  - $HOME/.sbt/launchers/0.13.9/
+  - $HOME/.sbt/boot/
+
+script:
+  - "sbt -h | cp .sbtignore $HOME/.sbtignore" # test. remove later
+  - "sbt ++$TRAVIS_SCALA_VERSION test"
+
