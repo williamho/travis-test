@@ -17,6 +17,6 @@ cache:
 
 script:
   - "cp .sbtignore $HOME/.sbtignore && cat $HOME/.sbtignore"
-  - "sbt test"
+  - "sbt ++$TRAVIS_SCALA_VERSION test"
   - "project/bin/run-travis"
 
