@@ -1,11 +1,5 @@
-\[info\] (Resolving|Loading|Updating|Packaging|Done updating)
-\[info\] Formatting [0-9]+ (Scala|Java) sources
-[.]bintray[/][.]credentials
-re[-]run with .* for details
-ignoring option MaxPermSize
-^\[info\][ ]*$
-^\[info\] \[info\]
-^\[info\] (Reading|Generating|Waiting|Written)\b
-^downloading http.*\.jar
-^\[info\] \[SUCCESSFUL[ ]*\].*\.jar
+\[info\] (Resolving|Loading|Updating|Packaging|Done updating|Formatting|Compiling)
+\[info\] JavaScript linting on
+downloading http.*[.]jar
+\[SUCCESSFUL \].*[.]jar
 
