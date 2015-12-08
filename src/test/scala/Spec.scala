@@ -19,7 +19,7 @@ import shapeless.syntax.std.traversable._
 
 class Spec extends Specification with Mockito {
   "Hello world" >> {
-    1 must_== 1
+    1 must_== 2
   }
 }
 
